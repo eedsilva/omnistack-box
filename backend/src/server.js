@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const appConfig = require("./config/app");
 const routes = require("./routes");
 
@@ -13,7 +14,7 @@ mongoose.connect(appConfig.MONGO_URL, { useNewUrlParser: true }, err => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/files", express.static(path.resolve(__dirname, '..', 'tmp')));
 app.use(routes);
 
 app.listen(4500);
