@@ -2,3 +2,6 @@
 /src/config/app.js
 *-lock.json
 *.lock
+
+tmp/*
+!tmp/.gitkeep

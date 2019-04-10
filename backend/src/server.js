@@ -7,6 +7,7 @@ const routes = require('./routes');
 
 const app = express();
 app.use(cors());
+
 const httpServer = require("http").Server(app);
 const io = require("socket.io")(httpServer);
 
