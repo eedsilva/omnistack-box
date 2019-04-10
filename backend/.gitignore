@@ -1,4 +1,4 @@
 /node_modules
-
+/src/config/app.js
 *-lock.json
 *.lock
