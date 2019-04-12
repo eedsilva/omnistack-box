@@ -14,7 +14,7 @@ const io = require("socket.io")(httpServer);
 const PORT = process.env.PORT || 4500;
 
 io.on("connection", socket => {
-  socket.on("connectionRoom", box => {
+  socket.on("connectRoom", box => {
     socket.join(box);
   });
 });
