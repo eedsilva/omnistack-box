@@ -1,0 +1,38 @@
+#main-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-container input {
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 20px;
+    margin-top: 30px;
+}
+
+#main-container button { 
+    height: 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 20px;
+    margin-top: 10px;
+    background: #7159c1;
+    color:#FFF;
+    font-weight: bold;
+    border:0;
+    cursor: pointer;
+}
+
+#main-container button:hover { 
+    opacity: 0.8;
+}
