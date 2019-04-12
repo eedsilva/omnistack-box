@@ -1,8 +1,8 @@
 import React from "react";
-import Main from "./pages/Main";
+import Routes from "./routes";
+
 import "./App.css"
-const App = () => (
-    <Main />
-);
+
+const App = () => <Routes />;
 
 export default App;
