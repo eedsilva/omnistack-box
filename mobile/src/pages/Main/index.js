@@ -3,11 +3,18 @@ import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import api from "../../services/api";
 import styles from "./styles";
 import logo from "../../assets/logo.png";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default class Main extends Component {
   state = {
     boxTitle: ""
   };
+
+  async componentDidMount() {
+    const box = await AsyncStorage.getItem("@RocketBox:box");
+
+    if(box) this.props.navigation.navigate("Box");
+  }
 
   onSignIn = async () => {};
 
@@ -18,7 +25,7 @@ export default class Main extends Component {
 
     console.log(response);
     
-
+    await AsyncStorage.setItem("@RocketBox:box", response.data._id);
     this.props.navigation.navigate("Box");
   };
 
