@@ -9,6 +9,7 @@ import en from "date-fns/locale/en";
 import ImagePicker from "react-native-image-picker";
 import RNFS from "react-native-fs";
 import FileViewer from "react-native-file-viewer";
+import socket from "socket.io-client";
 
 const Box = () => {
   const [box, setBox] = useState({});
@@ -21,8 +22,21 @@ const Box = () => {
       return response.data;
     };
 
-    fetchFiles().then(b => setBox(b));
+    fetchFiles().then(b => {
+        setBox(b);
+        subscribeNewFiles(b);
+    });
   }, []);
+
+  const subscribeNewFiles = b => {
+    const io = socket("http://10.0.0.191:4500");
+
+    io.emit("connectRoom", b._id);
+
+    io.on("file", data => { 
+      setBox({ ...b, files: [...b.files, data] });
+    });
+  };
 
   onOpenFile = async file => {
     try {
